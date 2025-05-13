@@ -2,21 +2,22 @@
 class Animal:
     alive = []
 
-    def __init__(self, name:str, health: int = 100, hidden: bool = False) -> None:
+    def __init__(self, name: str, health: int = 100,
+                 hidden: bool = False) -> None:
         self.name = name
         self.health = health
         self.hidden = hidden
         Animal.alive.append(self)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return (f"{{Name: {self.name}, "
                 f"Health: {self.health}, "
                 f"Hidden: {self.hidden}}}")
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return self.__str__()
 
-    def __del__(self):
+    def __del__(self) -> None:
         if self in Animal.alive and self.health <= 0:
             Animal.alive.remove(self)
 
@@ -24,7 +25,7 @@ class Animal:
 class Herbivore(Animal):
 
     def hide(self) -> None:
-            self.hidden = not self.hidden
+        self.hidden = not self.hidden
 
 
 class Carnivore(Animal):
