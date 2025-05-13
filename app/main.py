@@ -17,10 +17,6 @@ class Animal:
     def __repr__(self) -> str:
         return self.__str__()
 
-    def __del__(self) -> None:
-        if self in Animal.alive and self.health <= 0:
-            Animal.alive.remove(self)
-
 
 class Herbivore(Animal):
 
